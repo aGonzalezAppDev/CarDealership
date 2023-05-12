@@ -9,6 +9,7 @@ import java.util.ArrayList;
 public class DealershipFileManager {
     private final ArrayList<Dealership> dealership = new ArrayList<Dealership>();
 
+    // fix for vehicle parts
     public ArrayList<Dealership> getDealership() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader("dealership.csv"));
         String line = "";
