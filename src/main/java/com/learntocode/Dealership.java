@@ -2,6 +2,7 @@ package com.learntocode;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Dealership {
     private String name;
@@ -52,33 +53,95 @@ public class Dealership {
 
 
     // method for getting vehicle by price range
-    public ArrayList<Vehicle> getVehiclesByPrice(double min, double max){
-        return null;
+    public ArrayList<Vehicle> getVehiclesByPrice(double min, double max) {
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter minimum price: ");
+        double minPrice = input.nextDouble();
+        System.out.print("Enter maximum price: ");
+        double maxPrice = input.nextDouble();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getPrice() >= minPrice && vehicle.getPrice() <= maxPrice) {
+                System.out.println(vehicle);
+            }
+        }
+        return inventory;
     }
 
     // method for getting vehicle by model
     public ArrayList<Vehicle> getVehiclesByMakeModel(String make, String model){
-        return null;
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter make: ");
+        String userMake = input.nextLine();
+        System.out.print("Enter model: ");
+        String userModel = input.nextLine();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getMake().equalsIgnoreCase(userMake) && vehicle.getModel().equalsIgnoreCase(userModel)) {
+                System.out.println(vehicle);
+            }
+        }
+        return inventory;
     }
 
     // method for getting vehicle by year
     public ArrayList<Vehicle> getVehiclesByYear(int min, int max){
-        return null;
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter minimum year: ");
+        int minYear = input.nextInt();
+        System.out.print("Enter maximum year: ");
+        int maxYear = input.nextInt();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getYear() >= minYear && vehicle.getYear() <= maxYear) {
+                System.out.println(vehicle);
+            }
+        }
+        return inventory;
     }
 
     // method for getting vehicle by color
     public ArrayList<Vehicle> getVehiclesByColor(String color){
-        return null;
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter color: ");
+        String vehicleColor = input.nextLine();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getColor().equalsIgnoreCase(vehicleColor)) {
+                System.out.println(vehicle);
+            }
+        }
+        return inventory;
     }
 
     // method for getting vehicle by mileage
     public ArrayList<Vehicle> getVehiclesByMileage(int min, int max){
-        return null;
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter minimum mileage: ");
+        int minMileage = input.nextInt();
+        System.out.print("Enter maximum mileage: ");
+        int maxMileage = input.nextInt();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getOdometer() >= minMileage && vehicle.getOdometer() <= maxMileage) {
+                System.out.println(vehicle);
+            }
+        }
+        return inventory;
     }
 
     // method for getting vehicle by type
     public ArrayList<Vehicle> getVehiclesByType(String vehicleType){
-        return null;
+        Scanner input = new Scanner(System.in);
+        System.out.print("Enter vehicle type: ");
+        String inputVehicleType = input.nextLine();
+
+        for (Vehicle vehicle : inventory) {
+            if (vehicle.getVehicleType().equalsIgnoreCase(inputVehicleType)) {
+                System.out.println(vehicle);
+            }
+        }
+        return inventory;
     }
 
     // method for getting all vehicles - all inventory
@@ -95,8 +158,8 @@ public class Dealership {
     }
 
     // method for removing a vehicle
-    public void removeVehicle(ArrayList<Vehicle> vehicles){
-
+    public void removeVehicle(Vehicle vehicle){
+        inventory.remove(vehicle);
     }
 
     // To string
